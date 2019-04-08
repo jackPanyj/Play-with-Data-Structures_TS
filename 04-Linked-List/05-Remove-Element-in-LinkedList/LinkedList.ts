@@ -76,6 +76,44 @@ class LinkedList {
 
     }
 
+    public remove(index: number) {
+        if (index < 0 || index >= this.size) {
+            throw new Error('不合法的索引');
+        }
+        let preNode = this.dummyHead;
+        for(let i = 0; i < index; i++) {
+            preNode = preNode.next;
+        }
+        let retNode = preNode.next;
+        preNode.next = retNode.next;
+        retNode.next = null;
+        this.size -= 1;
+        return retNode.val;
+    }
+
+    public removeFirst() {
+        return this.remove(0);
+    }
+
+    public removeLast() {
+        return this.remove(this.size - 1);
+    }
+
+    public removeElement(val: any) {
+        let preNode = this.dummyHead;
+        while(preNode.next != null) {
+            if (preNode.next.val === val) {
+                break;
+            }
+            preNode = preNode.next;
+        }
+        if (preNode != null) {
+            let delNode = preNode.next;
+            preNode.next = delNode.next;
+            delNode.next = null;
+        }
+    }
+
     public toString() {
         let curNode = this.dummyHead.next;
         let str = '';
@@ -93,14 +131,14 @@ for (let index = 0; index < 10; index++) {
 }
 console.log(linkedList + '');
 
-linkedList.add(2, 333);
+let val = linkedList.remove(2);
+console.log(linkedList + '\n' + val);
+
+linkedList.removeFirst();
 console.log(linkedList + '');
 
-
-linkedList.addLast(222);
+linkedList.removeLast();
 console.log(linkedList + '');
 
-console.log(linkedList.get(3));
-
-linkedList.set(1, 123);
+linkedList.removeElement(6);
 console.log(linkedList + '');

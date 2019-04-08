@@ -1,4 +1,4 @@
-import INode from '../01-Linked-List-Basics/INode';
+import INode from './INode';
 
 class LinkedList {
     private size: number = 0;
@@ -16,13 +16,13 @@ class LinkedList {
         if (index < 0 || index > this.size) {
             throw new Error('不合法的索引');
         }
-        let curNode = this.dummyHead;
+        let preNode = this.dummyHead;
         
         // 找到插入位置的前一个元素
         for(let i = 0; i < index; i++) {
-            curNode = curNode.next;
+            preNode = preNode.next;
         }
-        curNode.next = new INode(val, curNode.next);
+        preNode.next = new INode(val, preNode.next);
         this.size += 1;
     }
 

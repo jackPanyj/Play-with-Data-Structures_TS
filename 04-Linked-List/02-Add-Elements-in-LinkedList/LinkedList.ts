@@ -1,4 +1,4 @@
-import INode from '../01-Linked-List-Basics/INode';
+import INode from './INode';
 
 class LinkedList {
     private head: INode = null;
