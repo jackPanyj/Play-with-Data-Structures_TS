@@ -30,7 +30,7 @@ class LinkedList {
         } else {
             // 找到插入位置的前一个元素
             let preNode = this.head;
-            for(let i = 0; i < index - 1; i++) {
+            for (let i = 0; i < index - 1; i++) {
                 preNode = preNode.next;
             }
             preNode.next = new INode(val, preNode.next);
@@ -45,7 +45,7 @@ class LinkedList {
     public toString() {
         let curNode = this.head;
         let str = '';
-        while(curNode != null) {
+        while (curNode != null) {
             str += curNode.val + (curNode.next != null ? ' -> ' : '');
             curNode = curNode.next;
         }
@@ -53,15 +53,17 @@ class LinkedList {
     }
 }
 
-const linkedList = new LinkedList();
-for (let index = 0; index < 10; index++) {
-    linkedList.addFirst(index);
+function test() {
+    const linkedList = new LinkedList();
+    for (let index = 0; index < 10; index++) {
+        linkedList.addFirst(index);
+    }
+    console.log(linkedList + '');
+
+    linkedList.add(2, 333);
+    console.log(linkedList + '');
+
+    linkedList.addLast(222);
+    console.log(linkedList + '');
 }
-console.log(linkedList + '');
-
-linkedList.add(2, 333);
-console.log(linkedList + '');
-
-
-linkedList.addLast(222);
-console.log(linkedList + '');
+test();

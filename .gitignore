@@ -39,3 +39,9 @@ text-contents/
 *.pdf
 *.PDF
 *.key
+
+#################
+# vscode       #
+#################
+.vscode/
+.prettierrc.js

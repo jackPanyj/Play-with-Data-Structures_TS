@@ -17,9 +17,9 @@ class LinkedList {
             throw new Error('不合法的索引');
         }
         let preNode = this.dummyHead;
-        
+
         // 找到插入位置的前一个元素
-        for(let i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
             preNode = preNode.next;
         }
         preNode.next = new INode(val, preNode.next);
@@ -37,7 +37,7 @@ class LinkedList {
     public toString() {
         let curNode = this.dummyHead.next;
         let str = '';
-        while(curNode != null) {
+        while (curNode != null) {
             str += curNode.val + (curNode.next != null ? ' -> ' : '');
             curNode = curNode.next;
         }
@@ -45,15 +45,17 @@ class LinkedList {
     }
 }
 
-const linkedList = new LinkedList();
-for (let index = 0; index < 10; index++) {
-    linkedList.addFirst(index);
+function test() {
+    const linkedList = new LinkedList();
+    for (let index = 0; index < 10; index++) {
+        linkedList.addFirst(index);
+    }
+    console.log(linkedList + '');
+
+    linkedList.add(2, 333);
+    console.log(linkedList + '');
+
+    linkedList.addLast(222);
+    console.log(linkedList + '');
 }
-console.log(linkedList + '');
-
-linkedList.add(2, 333);
-console.log(linkedList + '');
-
-
-linkedList.addLast(222);
-console.log(linkedList + '');
+test();

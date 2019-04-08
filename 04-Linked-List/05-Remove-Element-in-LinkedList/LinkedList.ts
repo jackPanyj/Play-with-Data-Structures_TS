@@ -17,9 +17,9 @@ class LinkedList {
             throw new Error('不合法的索引');
         }
         let preNode = this.dummyHead;
-        
+
         // 找到插入位置的前一个元素
-        for(let i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
             preNode = preNode.next;
         }
         preNode.next = new INode(val, preNode.next);
@@ -38,7 +38,7 @@ class LinkedList {
             throw new Error('不合法的索引');
         }
         let curNode = this.dummyHead.next;
-        for(let i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
             curNode = curNode.next;
         }
         return curNode.val;
@@ -58,7 +58,7 @@ class LinkedList {
         }
 
         let curNode = this.dummyHead.next;
-        for(let i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
             curNode = curNode.next;
         }
         curNode.val = val;
@@ -66,14 +66,13 @@ class LinkedList {
 
     public contains(val: any) {
         let curNode = this.dummyHead;
-        while(curNode.next != null) {
+        while (curNode.next != null) {
             if (curNode.val === val) {
                 return true;
             }
             curNode = curNode.next;
         }
         return false;
-
     }
 
     public remove(index: number) {
@@ -81,7 +80,7 @@ class LinkedList {
             throw new Error('不合法的索引');
         }
         let preNode = this.dummyHead;
-        for(let i = 0; i < index; i++) {
+        for (let i = 0; i < index; i++) {
             preNode = preNode.next;
         }
         let retNode = preNode.next;
@@ -101,7 +100,7 @@ class LinkedList {
 
     public removeElement(val: any) {
         let preNode = this.dummyHead;
-        while(preNode.next != null) {
+        while (preNode.next != null) {
             if (preNode.next.val === val) {
                 break;
             }
@@ -117,7 +116,7 @@ class LinkedList {
     public toString() {
         let curNode = this.dummyHead.next;
         let str = '';
-        while(curNode != null) {
+        while (curNode != null) {
             str += curNode.val + (curNode.next != null ? ' -> ' : '');
             curNode = curNode.next;
         }
@@ -125,20 +124,23 @@ class LinkedList {
     }
 }
 
-const linkedList = new LinkedList();
-for (let index = 0; index < 10; index++) {
-    linkedList.addFirst(index);
+function test() {
+    const linkedList = new LinkedList();
+    for (let index = 0; index < 10; index++) {
+        linkedList.addFirst(index);
+    }
+    console.log(linkedList + '');
+
+    let val = linkedList.remove(2);
+    console.log(linkedList + '\n' + val);
+
+    linkedList.removeFirst();
+    console.log(linkedList + '');
+
+    linkedList.removeLast();
+    console.log(linkedList + '');
+
+    linkedList.removeElement(6);
+    console.log(linkedList + '');
 }
-console.log(linkedList + '');
-
-let val = linkedList.remove(2);
-console.log(linkedList + '\n' + val);
-
-linkedList.removeFirst();
-console.log(linkedList + '');
-
-linkedList.removeLast();
-console.log(linkedList + '');
-
-linkedList.removeElement(6);
-console.log(linkedList + '');
+test();
