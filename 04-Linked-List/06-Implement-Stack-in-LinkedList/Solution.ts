@@ -36,5 +36,9 @@ class Solution {
 }
 
 const solution = new Solution();
-const ret = solution.isValid(')');
-console.log(ret);
+console.log(
+    solution.isValid('([]))'), // false
+    solution.isValid('{[])'), // false
+    solution.isValid('{([][]][]))}'), // false
+    solution.isValid('[()[[[[[{{{{}}}}]]]]]]'), // true
+);
