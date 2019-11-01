@@ -1,6 +1,6 @@
 import INode from './INode';
 
-class LinkedList {
+export default class LinkedList {
     private head: INode = null;
     private size: number = 0;
 
@@ -44,26 +44,11 @@ class LinkedList {
 
     public toString() {
         let curNode = this.head;
-        let str = '';
+        let arr = [];
         while (curNode != null) {
-            str += curNode.val + (curNode.next != null ? ' -> ' : '');
+            arr.push(curNode.val)
             curNode = curNode.next;
         }
-        return str;
+        return arr.toString();
     }
 }
-
-function test() {
-    const linkedList = new LinkedList();
-    for (let index = 0; index < 10; index++) {
-        linkedList.addFirst(index);
-    }
-    console.log(linkedList + '');
-
-    linkedList.add(2, 333);
-    console.log(linkedList + '');
-
-    linkedList.addLast(222);
-    console.log(linkedList + '');
-}
-test();
