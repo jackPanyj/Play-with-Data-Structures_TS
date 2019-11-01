@@ -45,3 +45,4 @@ text-contents/
 #################
 .vscode/
 .prettierrc.js
+node_modules
